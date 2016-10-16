@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package version="2.0" unique-identifier="BookId" xmlns="http://www.idpf.org/2007/opf">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:opf="http://www.idpf.org/2007/opf">
+    <dc:language>cn</dc:language>
+    <dc:title>Git Community Book 中文版</dc:title>
+    <dc:identifier id="BookId" opf:scheme="UUID">urn:uuid:198519e5-646a-4b15-832b-9307c38da605</dc:identifier>
+    <meta name="Sigil version" content="0.9.6" />
+    <dc:date opf:event="modification" xmlns:opf="http://www.idpf.org/2007/opf">2016-10-16</dc:date>
+  </metadata>
+  <manifest>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="screen.css" href="Styles/screen.css" media-type="text/css"/>
+    <item id="print.css" href="Styles/print.css" media-type="text/css"/>
+    <item id="mac_classic.css" href="Styles/mac_classic.css" media-type="text/css"/>
+    <item id="style.css" href="Styles/style.css" media-type="text/css"/>
+    <item id="x1_1.html" href="Text/1_1.html" media-type="application/xhtml+xml"/>
+    <item id="object-blob.png" href="Images/object-blob.png" media-type="image/png"/>
+    <item id="object-tree.png" href="Images/object-tree.png" media-type="image/png"/>
+    <item id="object-commit.png" href="Images/object-commit.png" media-type="image/png"/>
+    <item id="objects-example.png" href="Images/objects-example.png" media-type="image/png"/>
+    <item id="object-tag.png" href="Images/object-tag.png" media-type="image/png"/>
+    <item id="x1_2.html" href="Text/1_2.html" media-type="application/xhtml+xml"/>
+    <item id="x1_3.html" href="Text/1_3.html" media-type="application/xhtml+xml"/>
+    <item id="x1_4.html" href="Text/1_4.html" media-type="application/xhtml+xml"/>
+    <item id="x2_1.html" href="Text/2_1.html" media-type="application/xhtml+xml"/>
+    <item id="x2_2.html" href="Text/2_2.html" media-type="application/xhtml+xml"/>
+    <item id="x3_1.html" href="Text/3_1.html" media-type="application/xhtml+xml"/>
+    <item id="x3_2.html" href="Text/3_2.html" media-type="application/xhtml+xml"/>
+    <item id="x3_3.html" href="Text/3_3.html" media-type="application/xhtml+xml"/>
+    <item id="x3_4.html" href="Text/3_4.html" media-type="application/xhtml+xml"/>
+    <item id="x3_5.html" href="Text/3_5.html" media-type="application/xhtml+xml"/>
+    <item id="x3_6.html" href="Text/3_6.html" media-type="application/xhtml+xml"/>
+    <item id="x3_7.html" href="Text/3_7.html" media-type="application/xhtml+xml"/>
+    <item id="x4_1.html" href="Text/4_1.html" media-type="application/xhtml+xml"/>
+    <item id="x4_10.html" href="Text/4_10.html" media-type="application/xhtml+xml"/>
+    <item id="x4_11.html" href="Text/4_11.html" media-type="application/xhtml+xml"/>
+    <item id="x4_12.html" href="Text/4_12.html" media-type="application/xhtml+xml"/>
+    <item id="rebase0.png" href="Images/rebase0.png" media-type="image/png"/>
+    <item id="rebase1.png" href="Images/rebase1.png" media-type="image/png"/>
+    <item id="rebase2.png" href="Images/rebase2.png" media-type="image/png"/>
+    <item id="rebase3.png" href="Images/rebase3.png" media-type="image/png"/>
+    <item id="rebase4.png" href="Images/rebase4.png" media-type="image/png"/>
+    <item id="rebase5.png" href="Images/rebase5.png" media-type="image/png"/>
+    <item id="x4_2.html" href="Text/4_2.html" media-type="application/xhtml+xml"/>
+    <item id="x4_3.html" href="Text/4_3.html" media-type="application/xhtml+xml"/>
+    <item id="x4_4.html" href="Text/4_4.html" media-type="application/xhtml+xml"/>
+    <item id="x4_5.html" href="Text/4_5.html" media-type="application/xhtml+xml"/>
+    <item id="x4_6.html" href="Text/4_6.html" media-type="application/xhtml+xml"/>
+    <item id="x4_7.html" href="Text/4_7.html" media-type="application/xhtml+xml"/>
+    <item id="x4_8.html" href="Text/4_8.html" media-type="application/xhtml+xml"/>
+    <item id="x4_9.html" href="Text/4_9.html" media-type="application/xhtml+xml"/>
+    <item id="x5_1.html" href="Text/5_1.html" media-type="application/xhtml+xml"/>
+    <item id="x5_2.html" href="Text/5_2.html" media-type="application/xhtml+xml"/>
+    <item id="x5_3.html" href="Text/5_3.html" media-type="application/xhtml+xml"/>
+    <item id="x5_4.html" href="Text/5_4.html" media-type="application/xhtml+xml"/>
+    <item id="x5_5.html" href="Text/5_5.html" media-type="application/xhtml+xml"/>
+    <item id="x5_6.html" href="Text/5_6.html" media-type="application/xhtml+xml"/>
+    <item id="x5_7.html" href="Text/5_7.html" media-type="application/xhtml+xml"/>
+    <item id="x5_8.html" href="Text/5_8.html" media-type="application/xhtml+xml"/>
+    <item id="x6_1.html" href="Text/6_1.html" media-type="application/xhtml+xml"/>
+    <item id="x6_2.html" href="Text/6_2.html" media-type="application/xhtml+xml"/>
+    <item id="x7_1.html" href="Text/7_1.html" media-type="application/xhtml+xml"/>
+    <item id="x7_2.html" href="Text/7_2.html" media-type="application/xhtml+xml"/>
+    <item id="x7_3.html" href="Text/7_3.html" media-type="application/xhtml+xml"/>
+    <item id="x7_4.html" href="Text/7_4.html" media-type="application/xhtml+xml"/>
+    <item id="x7_5.html" href="Text/7_5.html" media-type="application/xhtml+xml"/>
+    <item id="x7_6.html" href="Text/7_6.html" media-type="application/xhtml+xml"/>
+    <item id="x7_7.html" href="Text/7_7.html" media-type="application/xhtml+xml"/>
+    <item id="x7_8.html" href="Text/7_8.html" media-type="application/xhtml+xml"/>
+    <item id="x7_9.html" href="Text/7_9.html" media-type="application/xhtml+xml"/>
+    <item id="x8_1.html" href="Text/8_1.html" media-type="application/xhtml+xml"/>
+    <item id="x8_2.html" href="Text/8_2.html" media-type="application/xhtml+xml"/>
+    <item id="x8_3.html" href="Text/8_3.html" media-type="application/xhtml+xml"/>
+    <item id="x8_4.html" href="Text/8_4.html" media-type="application/xhtml+xml"/>
+    <item id="packfile-index.png" href="Images/packfile-index.png" media-type="image/png"/>
+    <item id="packfile-format.png" href="Images/packfile-format.png" media-type="image/png"/>
+    <item id="packfile-logic.png" href="Images/packfile-logic.png" media-type="image/png"/>
+    <item id="x8_5.html" href="Text/8_5.html" media-type="application/xhtml+xml"/>
+    <item id="x8_6.html" href="Text/8_6.html" media-type="application/xhtml+xml"/>
+    <item id="x8_7.html" href="Text/8_7.html" media-type="application/xhtml+xml"/>
+    <item id="x8_8.html" href="Text/8_8.html" media-type="application/xhtml+xml"/>
+    <item id="second.css" href="Styles/second.css" media-type="text/css"/>
+    <item id="index_single.html" href="Text/index_single.html" media-type="application/xhtml+xml"/>
+    <item id="index.html" href="Text/index.html" media-type="application/xhtml+xml"/>
+    <item id="sgc-toc.css" href="Styles/sgc-toc.css" media-type="text/css"/>
+    <item id="TOC.xhtml" href="Text/TOC.xhtml" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="TOC.xhtml"/>
+    <itemref idref="x1_1.html"/>
+    <itemref idref="x1_2.html"/>
+    <itemref idref="x1_3.html"/>
+    <itemref idref="x1_4.html"/>
+    <itemref idref="x2_1.html"/>
+    <itemref idref="x2_2.html"/>
+    <itemref idref="x3_1.html"/>
+    <itemref idref="x3_2.html"/>
+    <itemref idref="x3_3.html"/>
+    <itemref idref="x3_4.html"/>
+    <itemref idref="x3_5.html"/>
+    <itemref idref="x3_6.html"/>
+    <itemref idref="x3_7.html"/>
+    <itemref idref="x4_1.html"/>
+    <itemref idref="x4_10.html"/>
+    <itemref idref="x4_11.html"/>
+    <itemref idref="x4_12.html"/>
+    <itemref idref="x4_2.html"/>
+    <itemref idref="x4_3.html"/>
+    <itemref idref="x4_4.html"/>
+    <itemref idref="x4_5.html"/>
+    <itemref idref="x4_6.html"/>
+    <itemref idref="x4_7.html"/>
+    <itemref idref="x4_8.html"/>
+    <itemref idref="x4_9.html"/>
+    <itemref idref="x5_1.html"/>
+    <itemref idref="x5_2.html"/>
+    <itemref idref="x5_3.html"/>
+    <itemref idref="x5_4.html"/>
+    <itemref idref="x5_5.html"/>
+    <itemref idref="x5_6.html"/>
+    <itemref idref="x5_7.html"/>
+    <itemref idref="x5_8.html"/>
+    <itemref idref="x6_1.html"/>
+    <itemref idref="x6_2.html"/>
+    <itemref idref="x7_1.html"/>
+    <itemref idref="x7_2.html"/>
+    <itemref idref="x7_3.html"/>
+    <itemref idref="x7_4.html"/>
+    <itemref idref="x7_5.html"/>
+    <itemref idref="x7_6.html"/>
+    <itemref idref="x7_7.html"/>
+    <itemref idref="x7_8.html"/>
+    <itemref idref="x7_9.html"/>
+    <itemref idref="x8_1.html"/>
+    <itemref idref="x8_2.html"/>
+    <itemref idref="x8_3.html"/>
+    <itemref idref="x8_4.html"/>
+    <itemref idref="x8_5.html"/>
+    <itemref idref="x8_6.html"/>
+    <itemref idref="x8_7.html"/>
+    <itemref idref="x8_8.html"/>
+    <itemref idref="index_single.html"/>
+    <itemref idref="index.html"/>
+  </spine>
+  <guide>
+    <reference type="toc" title="Table of Content" href="Text/TOC.xhtml"/>
+  </guide>
+</package>

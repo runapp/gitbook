@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="content-language" content="en"/>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+	<title>Git Book 中文版 - Git Hooks</title>
+	<link rel="icon" href="favicon.png" type="image/png"/>
+	<link rel="stylesheet" href="../Styles/screen.css" type="text/css" media="screen, projection"/>
+	<link rel="stylesheet" href="../Styles/print.css" type="text/css" media="print"/>
+	<link rel="stylesheet" href="../Styles/mac_classic.css" type="text/css" media="screen, projection"/>
+	<link rel="stylesheet" href="../Styles/style.css" type="text/css" media="screen, projection"/>
+</head>
+
+<body>
+<div class="container chapter showgrids">
+  
+  <div class="span-21">
+    <h2>Git Hooks</h2>
+
+<p>钩子(hooks)是一些在<code>$GIT-DIR/hooks</code>目录的脚本, 在被特定的事件(certain points)触发后被调用。当<code>git init</code>命令被调用后, 一些非常有用的示例钩子脚本被拷到新仓库的hooks目录中; 但是在默认情况下它们是不生效的。 把这些钩子文件的".sample"文件名后缀去掉就可以使它们生效。</p>
+
+<h3 id="sigil_toc_id_69">applypatch-msg</h3>
+
+<pre><code>GIT_DIR/hooks/applypatch-msg
+</code></pre>
+
+<p>这个钩子是由<code>git am</code>命令调用的。它只有一个参数：就是存有将要被应用的补丁(patch)的提交消息(commit log message)的文件名。如果钩子的返回值不是<code>0</code>，那么<code>git am</code>就会放弃对补丁的应用(apply the patch)。</p>
+
+<p>这个钩子可以在工作时（译注:也就是在<code>git am</code>运行时）编辑提交(commit)信息文件(message file)。它的一个用途是把提交(commit)信息规范化，使得其符合一些项目的标准（如果有的话）。它也可以用来在分析(inspect)完消息文件后拒绝某个提交(commit)。</p>
+
+<p>如果默认的<code>applypatch-msg.sample</code>钩子被启用，它会调用<code>commit-msg</code>钩子（如果它也被启用的话）。</p>
+
+<h3 id="sigil_toc_id_70">pre-applypatch</h3>
+
+<pre><code>GIT_DIR/hooks/pre-applypatch
+</code></pre>
+
+<p>这个钩子是由<code>git am</code>命令调用的。它不需要参数，并且是在一个补丁(patch)被应用后还未提交(commit)前被调用。如果钩子的返回值不是`0``，那么刚才应用的补丁(patch)就不会被提交。</p>
+
+<p>它可以用于检查当前的工作树（译注：此时补丁已经被应用但没有被提交），如果补丁不能通过测试就拒绝此次提交(commit)。</p>
+
+<p>如果默认的<code>pre-applypatch.sample</code>钩子被启用，它会调用<code>pre-commit</code>钩子（如果它也被启用的话）。</p>
+
+<h3 id="sigil_toc_id_71">post-applypatch</h3>
+
+<pre><code>GIT_DIR/hooks/post-applypatch
+</code></pre>
+
+<p>这个钩子是由<code>git am</code>命令调用的。它不需要参数，并且是在一个补丁(patch)被应用且在完成提交(commit)情况下被调用。</p>
+
+<p>这个钩子主要用来通知(notification)，它并不会影响<code>git-am</code>的执行结果。</p>
+
+<h3 id="sigil_toc_id_72">pre-commit</h3>
+
+<pre><code>GIT_DIR/hooks/pre-commit
+</code></pre>
+
+<p>这个钩子被 <code>git commit</code> 命令调用, 而且可以通过在命令中添加<code>\--no-verify</code> 参数来跳过。这个钩子不需要参数，在得到提交消息和开始提交(commit)前被调用。如果钩子返回值不是<code>0</code>，那么 <code>git commit</code> 命令就会中止执行。</p>
+
+<p>译注：这个钩子可以用来在提交前检查代码错误（例如运行lint程序）。</p>
+
+<p>当默认的<code>pre-commit</code>钩子被启用时，如果它发现文件尾部有空白行，那么就会中止此次提交。</p>
+
+<p>译注：新版的默认钩子和这里所说有所有不同。</p>
+
+<p>如果（进行<code>git commit</code>的）命令没有制定一个编辑器来修改提交信息(commit message)，任何的 <code>git-commit</code> 钩子（译注：即无论是否自带）被调用时都会带上环境变量<code>GIT_EDITOR=:</code></p>
+
+<p>下面是一个运行 Rspec 测试的 Ruby 脚本，如果没有通过这个测试，那么不允许提交(commit)。</p>
+
+<pre class="mac_classic">  
+html_path <span class="Keyword">=</span> <span class="String"><span class="String">"</span>spec_results.html<span class="String">"</span></span>  
+<span class="String"><span class="String">`</span>spec -f h:<span class="StringInterpolation"><span class="StringInterpolation">#{</span>html_path<span class="StringInterpolation">}</span></span> -f p spec<span class="String">`</span></span> <span class="Comment"><span class="Comment">#</span> run the spec. send progress to screen. save html results to html_path  </span>
+
+<span class="Comment"><span class="Comment">#</span> find out how many errors were found  </span>
+html <span class="Keyword">=</span> <span class="FunctionName">open</span>(html_path).<span class="FunctionName">read</span>  
+examples <span class="Keyword">=</span> html.<span class="FunctionName">match</span>(<span class="String"><span class="String">/</span></span><span class="String"><span class="String"><span class="String">(</span><span class="StringInterpolation">\d</span>+<span class="String">)</span></span> examples</span><span class="String"><span class="String">/</span></span>)[<span class="Number">0</span>].<span class="FunctionName">to_i</span> <span class="Keyword">rescue</span> <span class="Number">0</span>  
+failures <span class="Keyword">=</span> html.<span class="FunctionName">match</span>(<span class="String"><span class="String">/</span></span><span class="String"><span class="String"><span class="String">(</span><span class="StringInterpolation">\d</span>+<span class="String">)</span></span> failures</span><span class="String"><span class="String">/</span></span>)[<span class="Number">0</span>].<span class="FunctionName">to_i</span> <span class="Keyword">rescue</span> <span class="Number">0</span>  
+pending <span class="Keyword">=</span> html.<span class="FunctionName">match</span>(<span class="String"><span class="String">/</span></span><span class="String"><span class="String"><span class="String">(</span><span class="StringInterpolation">\d</span>+<span class="String">)</span></span> pending</span><span class="String"><span class="String">/</span></span>)[<span class="Number">0</span>].<span class="FunctionName">to_i</span> <span class="Keyword">rescue</span> <span class="Number">0</span>  
+
+<span class="Keyword">if</span> failures.<span class="FunctionName">zero?</span>  
+  puts <span class="String"><span class="String">"</span>0 failures! <span class="StringInterpolation"><span class="StringInterpolation">#{</span>examples<span class="StringInterpolation">}</span></span> run, <span class="StringInterpolation"><span class="StringInterpolation">#{</span>pending<span class="StringInterpolation">}</span></span> pending<span class="String">"</span></span>  
+<span class="Keyword">else</span>  
+  puts <span class="String"><span class="String">"</span><span class="StringInterpolation">\a</span>DID NOT COMMIT YOUR FILES!<span class="String">"</span></span>  
+  puts <span class="String"><span class="String">"</span>View spec results at <span class="StringInterpolation"><span class="StringInterpolation">#{</span><span class="LibraryObject">File</span><span class="StringInterpolation"><span class="StringInterpolation">.</span><span class="FunctionName">expand_path</span></span><span class="StringInterpolation">(</span>html_path<span class="StringInterpolation">)</span><span class="StringInterpolation">}</span></span><span class="String">"</span></span>  
+  puts  
+  puts <span class="String"><span class="String">"</span><span class="StringInterpolation"><span class="StringInterpolation">#{</span>failures<span class="StringInterpolation">}</span></span> failures! <span class="StringInterpolation"><span class="StringInterpolation">#{</span>examples<span class="StringInterpolation">}</span></span> run, <span class="StringInterpolation"><span class="StringInterpolation">#{</span>pending<span class="StringInterpolation">}</span></span> pending<span class="String">"</span></span>  
+  exit <span class="Number">1</span>  
+<span class="Keyword">end</span>
+</pre>
+
+<h3 id="sigil_toc_id_73">prepare-commit-msg</h3>
+
+<pre><code>GIT_DIR/hooks/prepare-commit-msg
+</code></pre>
+
+<p>执行<code>git commit</code>命令后，在默认提交消息准备好后但编辑器(editor)启动前，这个钩子就被调用。</p>
+
+<p>It takes one to three parameters.  The first is the name of the file</p>
+
+<p>它接受一到三个参数。第一个包含了提交消息的文本文件的名字。第二个是提交消息的来源，它可以是：
+* <code>message</code>（如果指定了<code>-m</code>或者<code>-F</code>选项）
+* <code>template</code>（如果指定了<code>-t</code>选项，或者在设置（译注：即<code>git config</code>）中开启了<code>commit.template</code>选项）
+* <code>merge</code>（如果本次提交(commit)是一次合并(merge)，或者存在文件<code>.git/MERGE_MSG</code>）
+* <code>squash</code>（如果存在文件<code>.git/SQUASH_MSG</code>）
+* <code>commit</code> 并且第三个参数是一个提交(commit)的SHA1值（如果指定了<code>-c</code>,<code>-C</code>或者<code>\--amend</code>选项）</p>
+
+<p>如果钩子的返回值不是<code>0</code>，那么<code>git commit</code>命令就会被中止执行。</p>
+
+<p>这个钩子的目的是用来在工作时编辑信息文件，并且不会被<code>\--no-verify</code>选项略过。一个非<code>0</code>值意味着钩子工作失败，会终止提交(abort the commit)。它不应该用来作为<code>pre-commit</code>钩子的替代。</p>
+
+<p>git提供的样本<code>prepare-commit-msg.sample</code>会把当前合并提交信息(a merge's commit message)中的<code>Conflicts:</code>部分注释掉。</p>
+
+
+  </div>
+  
+  <div class="span-21">
+    <hr/>
+    <div class="center"><a href="../Text/5_7.html">Prev</a>  <a href="../Text/6_1.html">Next</a></div>
+    <hr/>
+  </div>
+  
+</div>
+</body>
+</html>
